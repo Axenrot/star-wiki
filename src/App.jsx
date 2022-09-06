@@ -4,7 +4,7 @@ import { swapi } from "./client/axios";
 import Banner from "./components/Banner";
 import HomeOptions from "./components/HomeOptions";
 import List from "./components/List";
-import Login from "./components/Login";
+import HomeBtn from "./components/HomeBtn";
 import Starship from "./components/Starship";
 import Character from "./components/Character";
 
@@ -35,7 +35,8 @@ function App() {
 
   return (
     <Background>
-      <div className="container flex flex-col mx-auto">
+      {(characters.length > 0 || starships.length > 0) && <HomeBtn />}
+      <div className="container flex flex-col mx-auto px-3">
         {characters.length == 0 && starships.length == 0 && (
           <>
             <Banner />
