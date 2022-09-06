@@ -5,7 +5,7 @@ import Banner from "./components/Banner";
 import HomeOptions from "./components/HomeOptions";
 import List from "./components/List";
 import Login from "./components/Login";
-import Spaceship from "./components/Spaceship";
+import Starship from "./components/Starship";
 import Character from "./components/Character";
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
     setCharacters(response.data.results);
     setNextCharacters(response.data.next);
   }
+
   function consoleLog() {
     console.log(characters);
   }
@@ -35,15 +36,18 @@ function App() {
   return (
     <Background>
       <div className="container flex flex-col mx-auto">
-        <Banner />
-
         {characters.length == 0 && starships.length == 0 && (
-          <HomeOptions
-            showCharacters={getCharacters}
-            showStarships={getStarships}
-          />
+          <>
+            <Banner />
+            <HomeOptions
+              showCharacters={getCharacters}
+              showStarships={getStarships}
+            />
+          </>
         )}
-        {characters.length > 0 && <List characters={characters} />}
+        {(characters.length > 0 || starships.length > 0) && (
+          <List characters={characters} starships={starships} />
+        )}
       </div>
     </Background>
   );
