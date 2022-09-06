@@ -25,7 +25,20 @@ module.exports = {
       backgroundImage: {
         starship: "url('/starships.jpg')",
         character: "url('/characters.jpg')",
+        charactersbg: "url('/charactersbg.jpg')",
+        starshipsbg: "url('/starshipsbg.jpg')",
+
         sw: "url('/swconcept.gif')",
+      },
+      colors: {
+        skyblue: "#c1dbf1",
+        brightblue: "#1593f3",
+        midblue: "#1589f3",
+        darkblue: "#0f60a9",
+        staryellow: "#e8db5b",
+        starred: "#ef0514",
+        darkgray: "#1A1A1A",
+        semiblack: "#040404",
       },
     },
   },

@@ -1,36 +1,37 @@
-const people = [
-  {
-    name: "Calvin Hawkins",
-    email: "calvin.hawkins@example.com",
-    image:
-      "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-  },
-  {
-    name: "Kristen Ramos",
-    email: "kristen.ramos@example.com",
-    image:
-      "https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-  },
-  {
-    name: "Ted Fox",
-    email: "ted.fox@example.com",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-  },
-];
+import ListItem from "./ListItem";
 
-export default function List() {
+export default function List({ characters }) {
+  function consoleLog() {
+    console.log(characters);
+  }
+
   return (
-    <ul className="divide-y divide-red-700">
-      {people.map((person) => (
-        <li key={person.email} className="py-4 flex">
-          <img className="h-10 w-10 rounded-full" src={person.image} alt="" />
-          <div className="ml-3">
-            <p className="text-sm font-medium text-gray-900">{person.name}</p>
-            <p className="text-sm text-gray-500">{person.email}</p>
-          </div>
-        </li>
-      ))}
-    </ul>
+    <div className="fadein overflow-hidden shadow-xl shadow-semiblack sm:rounded-lg mb-[15vh] ">
+      <div id="TITLE" className="bg-charactersbg bg-cover bg-top">
+        <h3 className="py-12 bg-black bg-opacity-40 relative text-[100px] text-white text-center font-starjedi w-full h-full select-none">
+          Characters
+        </h3>
+      </div>
+      <div className="stretch overflow-hidden select-none">
+        {characters.map((character) => (
+          <ListItem
+            key={character.name}
+            name={character.name}
+            gender={character.gender}
+          />
+        ))}
+      </div>
+
+      <div className="border-t border-zinc-900">
+        <dl>
+          <button
+            className="transition-all duration-300 text-yellow-100 bg-midblue hover:text-semiblack hover:bg-staryellow px-4 py-5 flex sm:px-6 text-sm font-medium w-full justify-center"
+            onClick={consoleLog}
+          >
+            See more!
+          </button>
+        </dl>
+      </div>
+    </div>
   );
 }

@@ -6,3 +6,33 @@
   font-family: starjedi;
   src: url("./Starjedi.woff");
 }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes stretch {
+  0% {
+    height: 0px;
+  }
+  99% {
+    height: 610px;
+  }
+
+  100% {
+    height: fit-content;
+  }
+}
+
+.fadein {
+  animation: fadeIn 1s ease-out;
+}
+
+.stretch {
+  animation: stretch 5s ease-out;
+}
