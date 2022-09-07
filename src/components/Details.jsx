@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import axios from "axios";
 
-export default function Character({ url }) {
+export default function Details({ url }) {
   let data = [];
   useEffect(() => {
     axios.get(url).then((response) => (data = response.data));

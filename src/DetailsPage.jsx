@@ -1,14 +1,14 @@
 import Background from "./components/Background";
-import Character from "./components/Character";
+import Details from "./components/Details";
 
-const Details = ({ url }) => {
+const DetailsPage = ({ url }) => {
   return (
     <Background>
       <div className="container mx-auto px-3">
-        <Character url={url} />
+        <Details url={url} />
       </div>
     </Background>
   );
 };
 
-export default Details;
+export default DetailsPage;

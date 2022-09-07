@@ -5,8 +5,6 @@ import Banner from "./components/Banner";
 import HomeOptions from "./components/HomeOptions";
 import List from "./components/List";
 import HomeBtn from "./components/HomeBtn";
-import Starship from "./components/Starship";
-import Character from "./components/Character";
 
 function App() {
   const [characters, setCharacters] = useState([]);
