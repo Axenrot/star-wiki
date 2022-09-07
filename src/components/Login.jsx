@@ -27,24 +27,24 @@ export default function Login() {
         <body class="h-full">
         ```
       */}
-      <div className="w-1/2 mx-auto mb-10 flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-slate-400 rounded-lg">
+      <div className="w-full sm:w-1/2 mx-auto mb-10 flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-semiblack bg-opacity-95 rounded-lg border border-staryellow shadow-xl shadow-semiblack">
         <div className="w-full max-w-md space-y-8">
           <div>
             <img
-              className="mx-auto h-12 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+              className="mx-auto h-16 w-auto"
+              src="./login.png"
               alt="Your Company"
             />
-            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
+            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-staryellow">
               Sign in to your account
             </h2>
-            <p className="mt-2 text-center text-sm text-gray-600">
+            <p className="mt-2 text-center text-sm text-staryellow">
               Or{" "}
               <a
                 href="#"
-                className="font-medium text-indigo-600 hover:text-indigo-500"
+                className="transition-all duration-500 font-medium text-white hover:text-midblue"
               >
-                start your 14-day free trial
+                register!
               </a>
             </p>
           </div>
@@ -87,11 +87,11 @@ export default function Login() {
                   id="remember-me"
                   name="remember-me"
                   type="checkbox"
-                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                  className="h-4 w-4 border-gray-300"
                 />
                 <label
                   htmlFor="remember-me"
-                  className="ml-2 block text-sm text-gray-900"
+                  className="ml-2 block text-sm text-staryellow"
                 >
                   Remember me
                 </label>
@@ -100,7 +100,7 @@ export default function Login() {
               <div className="text-sm">
                 <a
                   href="#"
-                  className="font-medium text-indigo-600 hover:text-indigo-500"
+                  className="transition-all duration-500 font-medium text-white hover:text-midblue"
                 >
                   Forgot your password?
                 </a>
@@ -110,11 +110,11 @@ export default function Login() {
             <div>
               <button
                 type="submit"
-                className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="transition-all duration-500 group relative flex w-full justify-center rounded-md border border-transparent bg-staryellow py-2 px-4 text-sm font-medium text-black hover:bg-midblue hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                   <LockClosedIcon
-                    className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
+                    className="transition-all duration-500 h-5 w-5 group-hover:text-midblue"
                     aria-hidden="true"
                   />
                 </span>

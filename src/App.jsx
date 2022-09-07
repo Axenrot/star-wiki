@@ -1,11 +1,11 @@
-import { useState } from "react";
-import Background from "./components/Background";
+import { useState, useEffect } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { swapi } from "./client/axios";
-import Banner from "./components/Banner";
-import HomeOptions from "./components/HomeOptions";
-import List from "./components/List";
-import HomeBtn from "./components/HomeBtn";
-import { Routes, Route, Link } from "react-router-dom";
+import Background from "./components/Background";
+import Home from "./pages/Home";
+import Characters from "./pages/Characters";
+import Starships from "./pages/Starships";
+import axios from "axios";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -20,8 +20,13 @@ function App() {
     setCharacters(response.data.results);
   }
 
-  function consoleLog() {
-    console.log(characters);
+  function getMoreCharacters() {
+    if (nextCharacters != null) {
+      axios.get(nextCharacters).then((response) => {
+        setCharacters(characters.concat(response.data.results));
+        setNextCharacters(response.data.next);
+      });
+    }
   }
 
   async function getStarships() {
@@ -30,35 +35,48 @@ function App() {
     setStarships(response.data.results);
   }
 
+  function getMoreStarships() {
+    if (nextStarships != null) {
+      axios.get(nextStarships).then((response) => {
+        setStarships(starships.concat(response.data.results));
+        setNextStarships(response.data.next);
+      });
+    }
+  }
+
+  useEffect(() => {
+    if (characters.length == 0) {
+      getCharacters();
+    } else {
+      getMoreCharacters();
+    }
+  }, [nextCharacters]);
+
+  useEffect(() => {
+    if (starships.length == 0) {
+      getStarships();
+    } else {
+      getMoreStarships();
+    }
+  }, [nextStarships]);
+
+  function consoleLog() {
+    console.log(starships);
+  }
   return (
     <Background>
-      <button onClick={consoleLog} className="hidden bg-white w-full">
-        TESTE
-      </button>
-      {(characters.length > 0 || starships.length > 0) && <HomeBtn />}
-      <div className="container flex flex-col mx-auto px-3">
-        {characters.length == 0 && starships.length == 0 && (
-          <>
-            <Banner />
-            <HomeOptions
-              showCharacters={getCharacters}
-              showStarships={getStarships}
-            />
-          </>
-        )}
-        {(characters.length > 0 || starships.length > 0) && (
-          <List
-            characters={characters}
-            setCharacters={setCharacters}
-            nextCharacters={nextCharacters}
-            setNextCharacters={setNextCharacters}
-            starships={starships}
-            setStarships={setStarships}
-            nextStarships={nextStarships}
-            setNextStarships={setNextStarships}
-          />
-        )}
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/characters"
+          element={<Characters characters={characters} />}
+        />
+        <Route
+          path="/starships"
+          element={<Starships starships={starships} />}
+        />
+        <Route path="*" element={<Navigate to={"/"} />} />
+      </Routes>
     </Background>
   );
 }

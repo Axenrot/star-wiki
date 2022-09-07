@@ -1,5 +1,5 @@
-import Background from "./components/Background";
-import Details from "./components/Details";
+import Background from "../components/Background";
+import Details from "../components/Details";
 
 const DetailsPage = ({ url }) => {
   return (

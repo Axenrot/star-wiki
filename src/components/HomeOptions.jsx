@@ -1,9 +1,10 @@
 import { useRef } from "react";
-import gsap from "gsap";
+import { useNavigate } from "react-router-dom";
 
-const HomeOptions = ({ showCharacters, showStarships }) => {
+const HomeOptions = () => {
   const cBtn = useRef();
   const sBtn = useRef();
+  const navigate = useNavigate();
 
   function consoleLogC() {
     console.log(cBtn);
@@ -17,7 +18,9 @@ const HomeOptions = ({ showCharacters, showStarships }) => {
     <div className="flex flex-wrap text-white h-[600px] justify-between">
       <button
         ref={cBtn}
-        onClick={showCharacters}
+        onClick={() => {
+          navigate("/characters");
+        }}
         onMouseEnter={consoleLogC}
         className="mb-4 rounded-2xl w-full lg:w-[40%] border-2 border-semiblack shadow-xl shadow-semiblack overflow-hidden"
       >
@@ -29,7 +32,9 @@ const HomeOptions = ({ showCharacters, showStarships }) => {
 
       <button
         ref={sBtn}
-        onClick={showStarships}
+        onClick={() => {
+          navigate("/starships");
+        }}
         onMouseEnter={consoleLogS}
         className="mb-4 rounded-2xl w-full lg:w-[40%] border-2 border-semiblack shadow-xl shadow-semiblack overflow-hidden"
       >
