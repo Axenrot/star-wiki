@@ -5,6 +5,7 @@ import Banner from "./components/Banner";
 import HomeOptions from "./components/HomeOptions";
 import List from "./components/List";
 import HomeBtn from "./components/HomeBtn";
+import { Routes, Route, Link } from "react-router-dom";
 
 function App() {
   const [characters, setCharacters] = useState([]);

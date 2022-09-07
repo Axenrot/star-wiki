@@ -19,7 +19,7 @@ const HomeOptions = ({ showCharacters, showStarships }) => {
         ref={cBtn}
         onClick={showCharacters}
         onMouseEnter={consoleLogC}
-        className="mb-4 rounded-md w-full lg:w-[40%] border-2 overflow-hidden"
+        className="mb-4 rounded-2xl w-full lg:w-[40%] border-2 border-semiblack shadow-xl shadow-semiblack overflow-hidden"
       >
         <div className="transition-all duration-1000 flex bg-character w-full h-full bg-center items-end pb-4 hover:scale-105"></div>
         <div className="relative bottom-[100px] w-full h-fit bg-black p-2 bg-opacity-40">
@@ -31,7 +31,7 @@ const HomeOptions = ({ showCharacters, showStarships }) => {
         ref={sBtn}
         onClick={showStarships}
         onMouseEnter={consoleLogS}
-        className="mb-4 rounded-md w-full lg:w-[40%] border-2 overflow-hidden"
+        className="mb-4 rounded-2xl w-full lg:w-[40%] border-2 border-semiblack shadow-xl shadow-semiblack overflow-hidden"
       >
         <div className="transition-all duration-1000 flex bg-starship w-full h-full bg-center bg-cover items-end pb-4 hover:scale-105"></div>
         <div className="relative bottom-[100px] w-full h-fit bg-black p-2 bg-opacity-40">
