@@ -30,6 +30,9 @@ module.exports = {
         characterdetail: "url('/characterdetails.png')",
         "characterdetail-sm": "url('/characterdetails-sm.png')",
         "characterdetail-lg": "url('/characterdetails-lg.png')",
+        starshipdetail: "url('/starshipdetails.png')",
+        "starshipdetail-sm": "url('/starshipdetails-sm.png')",
+        "starshipdetail-lg": "url('/starshipdetails-lg.png')",
         sw: "url('/swconcept.gif')",
       },
       colors: {

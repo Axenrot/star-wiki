@@ -22,7 +22,10 @@ const ListItem = ({ name, gender, manufacturer = "", url, setUrl }) => {
   );
 
   const isLogged = (
-    <button className="flex justify-between bg-semiblack bg-opacity-95 px-4 py-5 w-full sm:px-6 border-b border-darkgray">
+    <button
+      onClick={() => console.log(name, url)}
+      className="flex justify-between bg-semiblack bg-opacity-95 px-4 py-5 w-full sm:px-6 border-b border-darkgray"
+    >
       <dt className="text-xl font-medium text-staryellow w-fit">{name}</dt>
       <dd className="text-staryellow text-xl w-fit">
         {gender == "male" && <FaMale className="ml-auto" />}
