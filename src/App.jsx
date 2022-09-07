@@ -15,12 +15,10 @@ function App() {
   const [nextStarships, setNextStarships] = useState(null);
   const [check, setCheck] = useState(true);
 
-  useEffect(() => {});
-
   async function getCharacters() {
     const response = await swapi.get("/people");
-    setCharacters(response.data.results);
     setNextCharacters(response.data.next);
+    setCharacters(response.data.results);
   }
 
   function consoleLog() {
@@ -29,12 +27,15 @@ function App() {
 
   async function getStarships() {
     const response = await swapi.get("/starships");
-    setStarships(response.data.results);
     setNextStarships(response.data.next);
+    setStarships(response.data.results);
   }
 
   return (
     <Background>
+      <button onClick={consoleLog} className="hidden bg-white w-full">
+        TESTE
+      </button>
       {(characters.length > 0 || starships.length > 0) && <HomeBtn />}
       <div className="container flex flex-col mx-auto px-3">
         {characters.length == 0 && starships.length == 0 && (
@@ -47,7 +48,16 @@ function App() {
           </>
         )}
         {(characters.length > 0 || starships.length > 0) && (
-          <List characters={characters} starships={starships} />
+          <List
+            characters={characters}
+            setCharacters={setCharacters}
+            nextCharacters={nextCharacters}
+            setNextCharacters={setNextCharacters}
+            starships={starships}
+            setStarships={setStarships}
+            nextStarships={nextStarships}
+            setNextStarships={setNextStarships}
+          />
         )}
       </div>
     </Background>

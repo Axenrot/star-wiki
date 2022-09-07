@@ -27,7 +27,9 @@ module.exports = {
         character: "url('/characters.jpg')",
         charactersbg: "url('/charactersbg.jpg')",
         starshipsbg: "url('/starshipsbg.jpg')",
-
+        characterdetail: "url('/characterdetails.png')",
+        "characterdetail-sm": "url('/characterdetails-sm.png')",
+        "characterdetail-lg": "url('/characterdetails-lg.png')",
         sw: "url('/swconcept.gif')",
       },
       colors: {

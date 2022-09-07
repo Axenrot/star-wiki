@@ -16,12 +16,25 @@
   }
 }
 
-@keyframes stretch {
+@keyframes stretchC {
   0% {
     height: 0px;
   }
   99% {
-    height: 760px;
+    height: 5733px;
+  }
+
+  100% {
+    height: fit-content;
+  }
+}
+
+@keyframes stretchS {
+  0% {
+    height: 0px;
+  }
+  99% {
+    height: 2550px;
   }
 
   100% {
@@ -33,6 +46,10 @@
   animation: fadeIn 1s ease-out;
 }
 
-.stretch {
-  animation: stretch 5s ease-out;
+.stretch-characters {
+  animation: stretchC 10s ease-out;
+}
+
+.stretch-starships {
+  animation: stretchS 5s ease-out;
 }

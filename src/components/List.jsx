@@ -1,6 +1,48 @@
+import axios from "axios";
+import { useEffect } from "react";
 import ListItem from "./ListItem";
 
-export default function List({ characters, starships }) {
+export default function List({
+  characters,
+  setCharacters,
+  starships,
+  setStarships,
+  nextCharacters,
+  setNextCharacters,
+  nextStarships,
+  setNextStarships,
+}) {
+  useEffect(() => {
+    if (characters.length > 0) {
+      console.log(nextCharacters);
+      getMoreCharacters();
+    }
+  }, [nextCharacters]);
+
+  useEffect(() => {
+    if (starships.length > 0) {
+      getMoreStarships();
+    }
+  }, [nextStarships]);
+
+  function getMoreCharacters() {
+    if (nextCharacters != null) {
+      axios.get(nextCharacters).then((response) => {
+        setCharacters(characters.concat(response.data.results));
+        setNextCharacters(response.data.next);
+      });
+    }
+  }
+
+  function getMoreStarships() {
+    if (nextStarships != null) {
+      axios.get(nextStarships).then((response) => {
+        setStarships(starships.concat(response.data.results));
+        setNextStarships(response.data.next);
+      });
+    }
+  }
+
   const characterList = (
     <div className="fadein overflow-hidden shadow-xl shadow-semiblack rounded-lg mb-[15vh] mt-20">
       <div id="TITLE" className="bg-charactersbg bg-cover bg-top">
@@ -8,11 +50,11 @@ export default function List({ characters, starships }) {
           Characters
         </h3>
       </div>
-      <div className="stretch overflow-hidden select-none">
+      <div className="stretch-characters overflow-hidden select-none">
         <div className="bg-semiblack bg-opacity-95 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="text-lg font-bold text-staryellow">Name</dt>
-          <dd className="text-staryellow sm:col-span-2 text-xl">
-            <div className="text-end text-lg italic font-bold">Gender</div>
+          <dd className="text-staryellow sm:col-span-2 text-xl text-end">
+            Gender
           </dd>
         </div>
         {characters.map((character) => (
@@ -20,15 +62,19 @@ export default function List({ characters, starships }) {
             key={character.name}
             name={character.name}
             gender={character.gender}
+            url={character.url}
           />
         ))}
       </div>
 
       <div className="border-t border-zinc-900">
         <dl>
-          <button className="transition-all duration-300 text-yellow-100 bg-midblue hover:text-semiblack hover:bg-staryellow px-4 py-5 flex sm:px-6 text-sm font-medium w-full justify-center">
-            See more!
-          </button>
+          <a
+            href=""
+            className="transition-all duration-300 text-semiblack bg-staryellow hover:bg-midblue hover:text-yellow-100 px-4 py-5 flex sm:px-6 text-sm font-medium w-full justify-center"
+          >
+            Go home?
+          </a>
         </dl>
       </div>
     </div>
@@ -38,10 +84,10 @@ export default function List({ characters, starships }) {
     <div className="fadein overflow-hidden shadow-xl shadow-semiblack rounded-lg mb-[15vh] mt-20">
       <div id="TITLE" className="bg-starshipsbg bg-cover bg-center">
         <h3 className="py-12 bg-black bg-opacity-40 relative text-[70px] md:text-[100px] text-white text-center font-starjedi w-full h-full select-none">
-          Starships
+          StarsHips
         </h3>
       </div>
-      <div className="stretch overflow-hidden select-none">
+      <div className="stretch-starships overflow-hidden select-none">
         <div className="bg-semiblack bg-opacity-95 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="text-xl font-bold text-staryellow">Name</dt>
           <dd className="text-staryellow sm:col-span-2 text-xl">
@@ -55,15 +101,19 @@ export default function List({ characters, starships }) {
             key={starships.name}
             name={starships.name}
             manufacturer={starships.manufacturer}
+            url={starships.url}
           />
         ))}
       </div>
 
       <div className="border-t border-zinc-900">
         <dl>
-          <button className="transition-all duration-300 text-semiblack bg-staryellow hover:bg-midblue hover:text-yellow-100 px-4 py-5 flex sm:px-6 text-sm font-medium w-full justify-center">
-            See more!
-          </button>
+          <a
+            href=""
+            className="transition-all duration-300 text-semiblack bg-staryellow hover:bg-midblue hover:text-yellow-100 px-4 py-5 flex sm:px-6 text-sm font-medium w-full justify-center"
+          >
+            Go home?
+          </a>
         </dl>
       </div>
     </div>
