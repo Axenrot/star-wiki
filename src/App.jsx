@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Background from "./components/Background";
 import { swapi } from "./client/axios";
 import Banner from "./components/Banner";
