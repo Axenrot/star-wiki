@@ -27,7 +27,7 @@ export default function Login() {
         <body class="h-full">
         ```
       */}
-      <div className="w-full sm:w-1/2 mx-auto mb-10 flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-semiblack bg-opacity-95 rounded-lg border border-staryellow shadow-xl shadow-semiblack">
+      <div className="fadein select-none w-full sm:w-2/3 lg:w-1/2 mb-10 flex h-[500px] items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-semiblack bg-opacity-95 rounded-lg border border-staryellow shadow-xl shadow-semiblack">
         <div className="w-full max-w-md space-y-8">
           <div>
             <img

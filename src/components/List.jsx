@@ -3,7 +3,7 @@ import ListItem from "./ListItem";
 export default function List({ characters, starships, switchCS }) {
   if (switchCS) {
     return (
-      <div className="container mx-auto fadein overflow-hidden shadow-xl shadow-semiblack rounded-lg mb-[15vh] mt-20">
+      <div className="fadein overflow-hidden shadow-xl shadow-semiblack rounded-lg mb-[15vh] mt-20">
         <div id="TITLE" className="bg-charactersbg bg-cover bg-top">
           <h3 className="py-12 bg-black bg-opacity-40 relative text-[60px] md:text-[100px] text-white text-center font-starjedi w-full h-full select-none">
             Characters
@@ -40,7 +40,7 @@ export default function List({ characters, starships, switchCS }) {
     );
   } else {
     return (
-      <div className="container mx-auto fadein overflow-hidden shadow-xl shadow-semiblack rounded-lg mb-[15vh] mt-20">
+      <div className="fadein overflow-hidden shadow-xl shadow-semiblack rounded-lg mb-[15vh] mt-20">
         <div id="TITLE" className="bg-starshipsbg bg-cover bg-top">
           <h3 className="py-12 bg-black bg-opacity-40 relative text-[60px] md:text-[100px] text-white text-center font-starjedi w-full h-full select-none">
             Starships

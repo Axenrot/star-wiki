@@ -1,11 +1,15 @@
 import List from "../components/List";
 import HomeBtn from "../components/HomeBtn";
+import LoginBtn from "../components/LoginBtn";
 
 const Starships = ({ starships }) => {
   return (
     <>
       <HomeBtn />
-      <List starships={starships} switchCS={false} />
+      <LoginBtn />
+      <div className="container mx-auto px-3 sm:px-0">
+        <List starships={starships} switchCS={false} />
+      </div>
     </>
   );
 };

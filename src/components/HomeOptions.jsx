@@ -15,7 +15,7 @@ const HomeOptions = () => {
   }
 
   return (
-    <div className="flex flex-wrap text-white h-[600px] justify-between">
+    <div className="fadein flex flex-wrap text-white h-[600px] justify-between">
       <button
         ref={cBtn}
         onClick={() => {

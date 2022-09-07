@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { swapi } from "./client/axios";
+import axios from "axios";
 import Background from "./components/Background";
 import Home from "./pages/Home";
 import Characters from "./pages/Characters";
 import Starships from "./pages/Starships";
-import axios from "axios";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -67,6 +68,7 @@ function App() {
     <Background>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route
           path="/characters"
           element={<Characters characters={characters} />}
