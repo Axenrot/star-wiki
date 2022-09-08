@@ -8,7 +8,7 @@ const Characters = ({ characters }) => {
       <HomeBtn />
       <LoginBtn />
       <div className="container mx-auto px-3 sm:px-0">
-        <List characters={characters} switchCS={true} />
+        <List characters={characters} pageType />
       </div>
     </>
   );

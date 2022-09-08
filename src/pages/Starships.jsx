@@ -8,7 +8,7 @@ const Starships = ({ starships }) => {
       <HomeBtn />
       <LoginBtn />
       <div className="container mx-auto px-3 sm:px-0">
-        <List starships={starships} switchCS={false} />
+        <List starships={starships} />
       </div>
     </>
   );

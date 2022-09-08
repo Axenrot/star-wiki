@@ -20,12 +20,8 @@
   0% {
     height: 0px;
   }
-  99% {
-    height: 5733px;
-  }
-
   100% {
-    height: fit-content;
+    height: 5733px;
   }
 }
 
@@ -33,12 +29,8 @@
   0% {
     height: 0px;
   }
-  99% {
-    height: 2550px;
-  }
-
   100% {
-    height: fit-content;
+    height: 2550px;
   }
 }
 

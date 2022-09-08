@@ -1,9 +1,14 @@
 import { FaMale, FaFemale } from "react-icons/fa";
 import { IoLogoAndroid } from "react-icons/io";
 import { GiAlienSkull } from "react-icons/gi";
+import { Link } from "react-router-dom";
+import { characterURL, starshipURL } from "../client/utils/url";
 
-const ListItem = ({ name, gender, manufacturer = "", url, setUrl }) => {
+const ListItem = ({ name, gender, manufacturer = "", url, pageType }) => {
+  const Id = url.split(pageType ? characterURL : starshipURL);
+
   const logged = true;
+
   const isntLogged = (
     <div className="flex justify-between bg-semiblack bg-opacity-95 px-4 py-5 w-full sm:px-6 border-b border-darkgray">
       <dt className="text-xl font-medium text-staryellow w-fit">{name}</dt>
@@ -22,8 +27,8 @@ const ListItem = ({ name, gender, manufacturer = "", url, setUrl }) => {
   );
 
   const isLogged = (
-    <button
-      onClick={() => console.log(name, url)}
+    <Link
+      to={`/${pageType ? "characters" : "starships"}/${Id[1]}`}
       className="flex justify-between bg-semiblack bg-opacity-95 px-4 py-5 w-full sm:px-6 border-b border-darkgray"
     >
       <dt className="text-xl font-medium text-staryellow w-fit">{name}</dt>
@@ -38,7 +43,7 @@ const ListItem = ({ name, gender, manufacturer = "", url, setUrl }) => {
           <div className="text-end text-lg italic">{manufacturer}</div>
         )}
       </dd>
-    </button>
+    </Link>
   );
   return (
     <>

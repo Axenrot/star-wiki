@@ -7,13 +7,13 @@ import Home from "./pages/Home";
 import Characters from "./pages/Characters";
 import Starships from "./pages/Starships";
 import LoginPage from "./pages/LoginPage";
+import DetailsPage from "./pages/DetailsPage";
 
 function App() {
   const [characters, setCharacters] = useState([]);
   const [nextCharacters, setNextCharacters] = useState(null);
   const [starships, setStarships] = useState([]);
   const [nextStarships, setNextStarships] = useState(null);
-  const [check, setCheck] = useState(true);
 
   async function getCharacters() {
     const response = await swapi.get("/people");
@@ -61,9 +61,6 @@ function App() {
     }
   }, [nextStarships]);
 
-  function consoleLog() {
-    console.log(starships);
-  }
   return (
     <Background>
       <Routes>
@@ -73,10 +70,12 @@ function App() {
           path="/characters"
           element={<Characters characters={characters} />}
         />
+        <Route path="/characters/:id" element={<DetailsPage pageType />} />
         <Route
           path="/starships"
           element={<Starships starships={starships} />}
         />
+        <Route path="/starships/:id" element={<DetailsPage />} />
         <Route path="*" element={<Navigate to={"/"} />} />
       </Routes>
     </Background>
