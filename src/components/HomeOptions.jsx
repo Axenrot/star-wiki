@@ -21,7 +21,6 @@ const HomeOptions = () => {
         onClick={() => {
           navigate("/characters");
         }}
-        onMouseEnter={consoleLogC}
         className="mb-4 rounded-2xl w-full lg:w-[40%] border-2 border-semiblack shadow-xl shadow-semiblack overflow-hidden"
       >
         <div className="transition-all duration-1000 flex bg-character w-full h-full bg-center items-end pb-4 hover:scale-105"></div>
@@ -35,7 +34,6 @@ const HomeOptions = () => {
         onClick={() => {
           navigate("/starships");
         }}
-        onMouseEnter={consoleLogS}
         className="mb-4 rounded-2xl w-full lg:w-[40%] border-2 border-semiblack shadow-xl shadow-semiblack overflow-hidden"
       >
         <div className="transition-all duration-1000 flex bg-starship w-full h-full bg-center bg-cover items-end pb-4 hover:scale-105"></div>

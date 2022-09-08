@@ -1,6 +1,8 @@
 import ListItem from "./ListItem";
+import { useNavigate } from "react-router-dom";
 
 export default function List({ characters, starships, pageType }) {
+  const navigate = useNavigate();
   return pageType ? (
     <div className="fadein overflow-hidden shadow-xl shadow-semiblack rounded-lg mb-[15vh] mt-20">
       <div id="TITLE" className="bg-charactersbg bg-cover bg-top">
