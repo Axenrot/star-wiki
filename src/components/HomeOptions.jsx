@@ -6,14 +6,6 @@ const HomeOptions = () => {
   const sBtn = useRef();
   const navigate = useNavigate();
 
-  function consoleLogC() {
-    console.log(cBtn);
-  }
-
-  function consoleLogS() {
-    console.log(sBtn);
-  }
-
   return (
     <div className="fadein flex flex-wrap text-white h-[600px] justify-between">
       <button

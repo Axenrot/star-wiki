@@ -4,9 +4,7 @@ import { GiAlienSkull } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { characterURL, starshipURL } from "../client/utils/url";
 
-const ListItem = ({ name, gender, manufacturer = "", url, pageType }) => {
-  const Id = url.split(pageType ? characterURL : starshipURL);
-
+const ListItem = ({ name, gender, manufacturer = "", id, pageType }) => {
   const logged = true;
 
   const isntLogged = (
@@ -28,7 +26,7 @@ const ListItem = ({ name, gender, manufacturer = "", url, pageType }) => {
 
   const isLogged = (
     <Link
-      to={`/${pageType ? "characters" : "starships"}/${Id[1]}`}
+      to={`/${pageType ? "characters" : "starships"}/${id + 1}`}
       className="flex justify-between bg-semiblack bg-opacity-95 px-4 py-5 w-full sm:px-6 border-b border-darkgray"
     >
       <dt className="text-xl font-medium text-staryellow w-fit">{name}</dt>

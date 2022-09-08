@@ -17,12 +17,12 @@ export default function List({ characters, starships, pageType }) {
             Gender
           </dd>
         </div>
-        {characters.map((character) => (
+        {characters.map((character, index) => (
           <ListItem
             key={character.name}
             name={character.name}
             gender={character.gender}
-            url={character.url}
+            id={index}
             pageType
           />
         ))}
@@ -53,12 +53,12 @@ export default function List({ characters, starships, pageType }) {
             Manufacturer
           </dd>
         </div>
-        {starships.map((starship) => (
+        {starships.map((starship, index) => (
           <ListItem
             key={starship.name}
             name={starship.name}
             manufacturer={starship.manufacturer}
-            url={starship.url}
+            id={index}
           />
         ))}
       </div>
