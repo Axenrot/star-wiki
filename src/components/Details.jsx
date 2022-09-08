@@ -160,37 +160,29 @@ export default function Details({ pageType }) {
         </div>
         <div className="text-lg px-3 py-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Movies:</dt>
-          {filmsList.map((film) => (
-            <div key={`${film}C`} className="italic text-end">
-              {film}
-            </div>
-          ))}
+          <div className="italic text-end">
+            {filmsList.map((film) => (
+              <div key={`${film}C`}>{film}</div>
+            ))}
+          </div>
         </div>
         <div className="text-lg px-3 py-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Starship:</dt>
-          <div className="text-end">
+          <div className="text-end italic">
             {starshipsList.length == 0 ? (
-              <div className="italic text-end">No Starships</div>
+              <div>No Starships</div>
             ) : (
-              starshipsList.map((ship) => (
-                <div key={`${ship}C`} className="italic text-end">
-                  {ship}
-                </div>
-              ))
+              starshipsList.map((ship) => <div key={`${ship}C`}>{ship}</div>)
             )}
           </div>
         </div>
         <div className="text-lg px-3 py-2 sm:gap-4 sm:px-6">
           <dt className="font-bold">Vehicles:</dt>
-          <div className="text-end">
+          <div className="italic text-end">
             {vehiclesList.length == 0 ? (
-              <div className="italic text-end">No Vehicles</div>
+              <div>No Vehicles</div>
             ) : (
-              vehiclesList.map((vehi) => (
-                <div key={`${vehi}C`} className="italic text-end">
-                  {vehi}
-                </div>
-              ))
+              vehiclesList.map((vehi) => <div key={`${vehi}C`}>{vehi}</div>)
             )}
           </div>
         </div>
@@ -241,23 +233,19 @@ export default function Details({ pageType }) {
         </div>
         <div className="text-lg px-3 py-2 grid grid-cols-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Pilots:</dt>
-          {pilotsList.length == 0 ? (
-            <div className="italic text-end">No Pilots</div>
-          ) : (
-            pilotsList.map((pilot) => (
-              <div key={`${pilot}S`} className="italic text-end">
-                {pilot}
-              </div>
-            ))
-          )}
+          <div className="italic text-end">
+            {pilotsList.length == 0 ? (
+              <div>No Pilots</div>
+            ) : (
+              pilotsList.map((pilot) => <div key={`${pilot}S`}>{pilot}</div>)
+            )}
+          </div>
         </div>
         <div className="text-lg px-3 py-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Movies:</dt>
-          <div className="text-end">
+          <div className="text-end italic ">
             {filmsList.map((film) => (
-              <div key={`${film}S`} className="italic text-end">
-                {film}
-              </div>
+              <div key={`${film}S`}>{film}</div>
             ))}
           </div>
         </div>
