@@ -1,3 +1,6 @@
+//ao inicializar a página, busca-se aqui toda a informação necessária da API e armazenando em variáveis
+//para prevenir carregamentos futuros.
+//Utilizei o Context para visualizar a informação onde for necessário (na página de detalhes).
 import { useEffect } from "react";
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
@@ -14,7 +17,6 @@ const defaultValues = {
   vehicles: defaultStates,
   planets: defaultStates,
 };
-
 const StarWikiContext = createContext(defaultValues);
 
 export const useStarWiki = () => useContext(StarWikiContext);

@@ -3,16 +3,27 @@ import { useEffect, useState } from "react";
 import { useStarWiki } from "../context";
 
 export default function Details({ pageType }) {
+  //todas as informações da API estão guardadas por completo nas variáveis do contexto StarWiki
   const { characters, vehicles, planets, starships } = useStarWiki();
+  //Pega o ID do endereço da página e subtrai 1 para pegar o personagem ou a nave correspondente no array do contexto
   const { id } = useParams();
   const arrayID = id - 1;
+  //set de todas as informações necessárias para a exibição da página de detalhes
   const [data, setData] = useState({});
   const [filmsList, setFilmsList] = useState([]);
   const [vehiclesList, setVehiclesList] = useState([]);
   const [starshipsList, setStarshipsList] = useState([]);
   const [pilotsList, setPilotsList] = useState([]);
-  const [planet, setPlanet] = useState("planeta");
+  const [planet, setPlanet] = useState("");
 
+  //Para prevenir checagens na API toda vez que o usuário acessar uma página de detalhes,
+  //inicio o armazenamento das informações assim que a página carrega para que possamos acessá-las instantaneamente
+
+  //Visto que todas as informações estão armazenadas no Contexto, as funções GET funcionam da seguinte forma:
+  //1 - Recebo uma lista de URLs no objeto Data
+  //2 - Checo no parâmetro do contexto qual elemento do Array possui como parâmetro um URL igual ao da lista Recebida
+  //3 - Retorno o parâmetro NAME do elemento que passar no teste Find()
+  //4 - Adiciono esses elementos em uma lista e após checar todos passo a lista como parâmetro do setList()
   function getFilms() {
     let list = [];
     if (data.films) {
@@ -93,16 +104,21 @@ export default function Details({ pageType }) {
     }
   }
 
+  //se houver alguma informação já armazenada no array dos personagens e das naves a função permite o chamado do setData()
   function getData() {
     if (characters[arrayID] && starships[arrayID]) {
       setData(pageType ? characters[arrayID] : starships[arrayID]);
     }
   }
-  //setData
+
+  //Assim que carrega a página obtém a Informação relacionada ao objeto a ser detalhado
   useEffect(() => {
     getData();
   }, [characters]);
 
+  //Quando tiver com a informação a ser detalhada, obtém as
+  //listas de informações secundárias para serem exibidas de forma dinâmica.
+  //Da o Get de acordo com o tipo de página.
   useEffect(() => {
     getFilms();
     pageType && getStarships();
@@ -120,11 +136,11 @@ export default function Details({ pageType }) {
 
       <div className="text-staryellow flex flex-col row-span-5 sm:row-span-full col-span-full sm:col-span-2 overflow-hidden">
         <h3 className="text-white font-starjedi px-3 sm:px-5 py-2 text-[20px] md:text-[30px] font-bold select-none">
-          Character Details
+          Character Details{console.log(data, characters)}
         </h3>
         <div className="text-lg px-3 py-2 grid grid-cols-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Name:</dt>
-          <dd className="italic text-end">{data.name}</dd>
+          <dd className="italic text-end capitalize">{data.name}</dd>
         </div>
         <div className="text-lg px-3 py-2 grid grid-cols-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Homeland:</dt>
@@ -160,7 +176,7 @@ export default function Details({ pageType }) {
         </div>
         <div className="text-lg px-3 py-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Movies:</dt>
-          <div className="italic text-end">
+          <div className="italic text-end capitalize">
             {filmsList.map((film) => (
               <div key={`${film}C`}>{film}</div>
             ))}
@@ -168,7 +184,7 @@ export default function Details({ pageType }) {
         </div>
         <div className="text-lg px-3 py-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Starship:</dt>
-          <div className="text-end italic">
+          <div className="text-end italic capitalize">
             {starshipsList.length == 0 ? (
               <div>No Starships</div>
             ) : (
@@ -178,7 +194,7 @@ export default function Details({ pageType }) {
         </div>
         <div className="text-lg px-3 py-2 sm:gap-4 sm:px-6">
           <dt className="font-bold">Vehicles:</dt>
-          <div className="italic text-end">
+          <div className="italic text-end capitalize">
             {vehiclesList.length == 0 ? (
               <div>No Vehicles</div>
             ) : (
@@ -201,19 +217,19 @@ export default function Details({ pageType }) {
         </h3>
         <div className="text-lg px-3 py-2 grid grid-cols-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Name:</dt>
-          <dd className="italic text-end">{data.name}</dd>
+          <dd className="italic text-end capitalize">{data.name}</dd>
         </div>
         <div className="text-lg px-3 py-2 grid grid-cols-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Model:</dt>
-          <dd className="italic text-end">{data.model}</dd>
+          <dd className="italic text-end capitalize">{data.model}</dd>
         </div>
         <div className="text-lg px-3 py-2 grid grid-cols-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Manufacturer:</dt>
-          <dd className="italic text-end">{data.manufacturer}</dd>
+          <dd className="italic text-end capitalize">{data.manufacturer}</dd>
         </div>
         <div className="text-lg px-3 py-2 grid grid-cols-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Class:</dt>
-          <dd className="italic text-end">{data.starship_class}</dd>
+          <dd className="italic text-end capitalize">{data.starship_class}</dd>
         </div>
         <div className="text-lg px-3 py-2 grid grid-cols-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Hyperdrive Rating:</dt>
@@ -233,7 +249,7 @@ export default function Details({ pageType }) {
         </div>
         <div className="text-lg px-3 py-2 grid grid-cols-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Pilots:</dt>
-          <div className="italic text-end">
+          <div className="italic text-end capitalize">
             {pilotsList.length == 0 ? (
               <div>No Pilots</div>
             ) : (
@@ -243,7 +259,7 @@ export default function Details({ pageType }) {
         </div>
         <div className="text-lg px-3 py-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Movies:</dt>
-          <div className="text-end italic ">
+          <div className="text-end italic capitalize">
             {filmsList.map((film) => (
               <div key={`${film}S`}>{film}</div>
             ))}

@@ -18,11 +18,13 @@ function App() {
           path="/characters"
           element={<Characters characters={characters} />}
         />
+        {/*Se o PageType for True exibe a página de detalhes dos Personagens*/}
         <Route path="/characters/:id" element={<DetailsPage pageType />} />
         <Route
           path="/starships"
           element={<Starships starships={starships} />}
         />
+        {/*Se o PageType for False (ou undefined) exibe a página de detalhes das Naves*/}
         <Route path="/starships/:id" element={<DetailsPage />} />
         <Route path="*" element={<Navigate to={"/"} />} />
       </Routes>
