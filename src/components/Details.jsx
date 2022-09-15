@@ -106,8 +106,10 @@ export default function Details({ pageType }) {
 
   //se houver alguma informação já armazenada no array dos personagens e das naves a função permite o chamado do setData()
   function getData() {
-    if (characters[arrayID] && starships[arrayID]) {
-      setData(pageType ? characters[arrayID] : starships[arrayID]);
+    if (pageType && characters[arrayID]) {
+      setData(characters[arrayID]);
+    } else if (!pageType && starships[arrayID]) {
+      setData(starships[arrayID]);
     }
   }
 
@@ -144,11 +146,11 @@ export default function Details({ pageType }) {
         </div>
         <div className="text-lg px-3 py-2 grid grid-cols-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Homeland:</dt>
-          <dd className="italic text-end">{planet}</dd>
+          <dd className="italic text-end capitalize">{planet}</dd>
         </div>
         <div className="text-lg px-3 py-2 grid grid-cols-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Birth year:</dt>
-          <dd className="italic text-end">{data.birth_year}</dd>
+          <dd className="italic text-end capitalize">{data.birth_year}</dd>
         </div>
         <div className="text-lg px-3 py-2 grid grid-cols-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Gender:</dt>
@@ -156,11 +158,11 @@ export default function Details({ pageType }) {
         </div>
         <div className="text-lg px-3 py-2 grid grid-cols-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Height:</dt>
-          <dd className="italic text-end">{data.height} cm</dd>
+          <dd className="italic text-end capitalize">{data.height} cm</dd>
         </div>
         <div className="text-lg px-3 py-2 grid grid-cols-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Weight:</dt>
-          <dd className="italic text-end">{data.mass} kg</dd>
+          <dd className="italic text-end capitalize">{data.mass} kg</dd>
         </div>
         <div className="text-lg px-3 py-2 grid grid-cols-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Hair Color:</dt>
@@ -233,19 +235,21 @@ export default function Details({ pageType }) {
         </div>
         <div className="text-lg px-3 py-2 grid grid-cols-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Hyperdrive Rating:</dt>
-          <dd className="italic text-end">{data.hyperdrive_rating}</dd>
+          <dd className="italic text-end capitalize">
+            {data.hyperdrive_rating}
+          </dd>
         </div>
         <div className="text-lg px-3 py-2 grid grid-cols-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Length:</dt>
-          <dd className="italic text-end">{data.length} m</dd>
+          <dd className="italic text-end capitalize">{data.length} m</dd>
         </div>
         <div className="text-lg px-3 py-2 grid grid-cols-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Passengers:</dt>
-          <dd className="italic text-end uppercase">{data.passengers}</dd>
+          <dd className="italic text-end capitalize">{data.passengers}</dd>
         </div>
         <div className="text-lg px-3 py-2 grid grid-cols-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Crew:</dt>
-          <dd className="italic text-end">{data.crew}</dd>
+          <dd className="italic text-end capitalize">{data.crew}</dd>
         </div>
         <div className="text-lg px-3 py-2 grid grid-cols-2 sm:gap-4 sm:px-6 border-b border-darkgray">
           <dt className="font-bold">Pilots:</dt>
